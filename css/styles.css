@@ -9,7 +9,7 @@
 
 @font-face {
   font-family: "PottaOne";
-  /*src: url("/thepanoply-preview/fonts/pottaone-regular.woff2");*/
+  /* src: url("/thepanoply-preview/fonts/pottaone-regular.woff2"); */
   /* line above used for preview deployment, line below used for prod deployment  */
   src: url("/fonts/pottaone-regular.woff2");
 }
@@ -92,10 +92,6 @@ section {
   z-index: 1;
 }
 
-/* MENU */
-
-/* /MENU */
-
 /* SocnetIcons */
 
 #SocnetIcons {
@@ -132,40 +128,6 @@ a img {
 
 /* /SocnetIcons */
 
-/* DIVIDERS-> */
-
-/* https://codepen.io/Everybodyknows/pen/abbyLOZ */
-
-@media (max-width: 900px) {
-  div.parallax-image-socnet {
-    background-image: url("../images/dividers/socnetdivider.small.webp");
-  }
-
-  div.parallax-image-contact {
-    background-image: url("../images/dividers/contactdivider.small.webp");
-  }
-
-  .header-text {
-    margin-left: 10vw;
-    font-size: 2rem;
-  }
-}
-
-@media (min-width: 901px) {
-  div.parallax-image-socnet {
-    background-image: url("../images/dividers/socnetdivider.webp");
-  }
-
-  div.parallax-image-contact {
-    background-image: url("../images/dividers/contactdivider.webp");
-  }
-
-  .header-text {
-    margin-left: 20vw;
-    font-size: 3rem;
-  }
-}
-
 div.parallax-image-socnet {
   margin-top: -5vh;
 }
@@ -185,28 +147,10 @@ div.parallax-image-contact.lazy {
   background-color: var(--main-complementary-color);
 }
 
-.fixed3 {
-
-  top: 15vh;
-  width: 100%;
-  height: 100vh;
-
-  position: -webkit-sticky; /* Safari */
-  position: sticky;
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  background-size: cover;
-  z-index: -1;
-}
-
-
-.header-text {
-  margin-left: 20vw;
-  font-size: 3rem;
-}
-
+/* DIVIDERS-> */
+/* https://codepen.io/Everybodyknows/pen/abbyLOZ */
 .fixed {
-  top: 15vh;
+  top: 10vh;
   width: 100%;
   
   -webkit-background-size: cover;
@@ -222,7 +166,7 @@ div.parallax-image-contact.lazy {
   .fixed {
     position: -webkit-sticky; /* Safari */
     position: sticky;
-    height: 60vh;
+    height: 40vh;
   }
 }
 
