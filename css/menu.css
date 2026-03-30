@@ -48,7 +48,7 @@ nav {
 }
 
 nav > a {
-  color: black;
+  color: white;
   text-transform: uppercase;
   font-weight: 400;
   line-height: 20px;
@@ -63,7 +63,7 @@ nav > a {
 }
 
 nav > a:hover {
-  color: white;
+  color: black;
 }
 
 nav > a:active {
