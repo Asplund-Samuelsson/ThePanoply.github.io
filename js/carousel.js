@@ -152,7 +152,7 @@ function forward() {
 function next() {
   goto(index_slideCurrent() + 1);
 }
-const pause = 10000;
+const pause = 5000;
 let itv;
 function play() {
   // early return if the user prefers reduced motion
