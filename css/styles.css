@@ -49,7 +49,25 @@ div.section {
   text-align: center;
 }
 
+a.cta:link, a.cta:visited {
+  border-radius: 25px;
+  background-color: var(--main-color);
+  color: white;
+  padding: 14px 25px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+}
 
+a.cta:hover, a.cta:active {
+  background-color: var(--secondary-color);
+}
+
+p.cta {
+  text-align: center;
+  font-size: 18px;
+  padding-top: 15px;
+}
 
 div.section:last-child {
   min-height: 100%;
