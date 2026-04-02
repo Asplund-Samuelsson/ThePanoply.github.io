@@ -31,23 +31,37 @@ img {
 nav {
   max-width: var(--max-width);
   display: flex;
-  justify-content: center;
   padding-left: 0px;
-  margin-bottom: 0px;
-  margin-top: 0px;
   margin: auto;
-  font-family: 'PottaOne';
-  font-size: 18px;
   justify-content: space-evenly;
 }
 
+nav > div {
+  white-space: nowrap;
+  margin: 10px 0px;
+  font-family: 'PottaOne';
+  font-size: 18px;
+}
+
+div.vertical-line {
+  border-left: solid var(--secondary-color);
+}
+
+div.nav-left {
+  float: left;
+}
+
+div.nav-right {
+  float: right;
+}
+
 @media (max-width: 600px) {
-  nav {
+  nav > div {
     font-size: 14px;
   }
 }
 
-nav > a {
+nav > div > a {
   color: white;
   text-transform: uppercase;
   font-weight: 400;
@@ -57,27 +71,28 @@ nav > a {
   letter-spacing: 1px;
   list-style-type: none;
   background-color: transparent;
-  margin: 10px 10px 10px 0;
+  margin: 0px 10px;
   text-decoration: none;
   line-height: 20px;
+  display: inline-block;
 }
 
-nav > a:hover {
+nav > div > a:hover {
   color: black;
 }
 
-nav > a:active {
+nav > div > a:active {
   color: var(--secondary-color);
 }
 
 a.cta_menu:link, a.cta_menu:visited {
-  border-radius: 15px;
+  border-radius: 20px;
   background-color: #c23f14;
   border-color: var(--main-color);
   text-decoration: none;
   display: inline-block;
-  padding-left: 10px;
-  padding-right: 10px;
+  padding-left: 15px;
+  padding-right: 15px;
 }
 
 a.cta_menu:hover, a.cta_menu:active {
