@@ -43,15 +43,13 @@ nav > div {
   font-size: 18px;
 }
 
-div.vertical-line {
-  border-left: solid var(--secondary-color);
-}
-
 div.nav-left {
   float: left;
 }
 
 div.nav-right {
+  padding-left: 10px;
+  border-left: solid var(--secondary-color);
   float: right;
 }
 
