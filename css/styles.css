@@ -5,14 +5,14 @@
   --secondary-complementary-color: #003979;
 
   --max-width: 900px;
-  --max-height: 800px;
-}
 
-/* Make intro text visible on 1080p, while allowing more image space on higher resolution screens */
-@media (max-width: 2000px) {
-  :root {
-    --max-height: 600px;
-  }
+  /* Set carousel height so there is always room to show the intro text */
+  --max-carousel-height: min(
+    /* Calculate as 100% - header - menu - intro */
+    calc(100vh - 210px - 60px - 10vh),
+    /* Fine-tune the height on high resolution screens */
+    1020px
+  )
 }
 
 @font-face {

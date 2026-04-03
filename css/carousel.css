@@ -5,7 +5,7 @@
 
 .carousel {
   width: 100%;
-  max-height: var(--max-height);
+  max-height: var(--max-carousel-height);
   margin: 0 auto;
   padding-bottom: 10px;
   position: relative;
@@ -38,7 +38,7 @@
 .carousel__slide img {
   object-fit: cover;
   object-position: 50% 30%;
-  max-height: var(--max-height);
+  max-height: var(--max-carousel-height);
   display: block;
 }
 
