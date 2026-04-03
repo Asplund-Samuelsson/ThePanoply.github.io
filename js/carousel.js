@@ -45,6 +45,7 @@ images.forEach((url, id) => {
   const img = document.createElement("img");
   img.setAttribute("src", url);
   img.setAttribute("width", "100%");
+  img.setAttribute("class", `id${imageNames[id]}`)
 
   slide.appendChild(img);
   slideContainer.appendChild(slide);

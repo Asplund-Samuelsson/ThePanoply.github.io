@@ -1,52 +1,93 @@
-/* Show just one 991px wide slide at a time */
-.carousel {
-  width: 100%;
-  max-width: var(--max-width);
-}
-
-.carousel__slides,
-.carousel__slide {
-  width: 100%;
-}
-
-/* Make carousel swipeable */
-.carousel__slides {
-  column-gap: 20px;
-  display: flex;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
-}
-
-.carousel__slide {
-  flex: 0 0 auto;
-  scroll-snap-align: center;
-}
-
-.carousel__slides.smooth-scroll {
-  scroll-behavior: smooth;
-}
-
-/* Hide scrollbar */
-.carousel__slides {
-  scrollbar-width: none; /* Firefox and latest Chromium */
-}
-
-.carousel__slides::-webkit-scrollbar {
-  display: none; /* Safari and legacy Chromium */
-}
-
-/* Styling relative to next section */
-.carousel {
-  padding-bottom: 10px;
-  position: relative;
-}
-
-/* Stylistic purpose */
 .carousel-wrapper {
   align-items: center;
   display: flex;
 }
 
 .carousel {
+  width: 100%;
+  max-height: 800px;
   margin: 0 auto;
+  padding-bottom: 10px;
+  position: relative;
+}
+
+.carousel__slides {
+  width: 100%;
+  column-gap: 20px;
+  display: flex;
+  overflow: auto;
+  scroll-snap-type: x mandatory;
+  scrollbar-width: none; /* Firefox and latest Chromium */
+}
+
+.carousel__slides.smooth-scroll {
+  scroll-behavior: smooth;
+}
+
+.carousel__slides::-webkit-scrollbar {
+  display: none; /* Safari and legacy Chromium */
+}
+
+.carousel__slide {
+  flex: 0 0 auto;
+  scroll-snap-align: center;
+  width: 100%;
+  z-index: -1;
+}
+
+.carousel__slide img {
+  object-fit: cover;
+  object-position: 50% 30%;
+  max-height: 800px;
+  display: block;
+}
+
+/* Zoom towards the correct vertical center for each image on wider screens */
+/* Class set by image name in carousel.js */
+.carousel__slide img.id1 {
+  object-position: 50% 0%;
+}
+
+.carousel__slide img.id2 {
+  object-position: 50% 0%;
+}
+
+.carousel__slide img.id3 {
+  object-position: 50% 65%;
+}
+
+.carousel__slide img.id4 {
+  object-position: 50% 50%;
+}
+
+.carousel__slide img.id5 {
+  object-position: 50% 50%;
+}
+
+.carousel__slide img.id6 {
+  object-position: 50% 30%;
+}
+
+.carousel__slide img.id7 {
+  object-position: 50% 0%;
+}
+
+.carousel__slide img.id8 {
+  object-position: 50% 30%;
+}
+
+.carousel__slide img.id9 {
+  object-position: 50% 30%;
+}
+
+.carousel__slide img.id10 {
+  object-position: 50% 30%;
+}
+
+.carousel__slide img.id11 {
+  object-position: 50% 40%;
+}
+
+.carousel__slide img.id12 {
+  object-position: 50% 75%;
 }
