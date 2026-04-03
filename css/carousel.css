@@ -5,7 +5,7 @@
 
 .carousel {
   width: 100%;
-  max-height: 800px;
+  max-height: var(--max-height);
   margin: 0 auto;
   padding-bottom: 10px;
   position: relative;
@@ -38,7 +38,7 @@
 .carousel__slide img {
   object-fit: cover;
   object-position: 50% 30%;
-  max-height: 800px;
+  max-height: var(--max-height);
   display: block;
 }
 
@@ -49,15 +49,15 @@
 }
 
 .carousel__slide img.id2 {
-  object-position: 50% 0%;
+  object-position: 50% 10%;
 }
 
 .carousel__slide img.id3 {
-  object-position: 50% 65%;
+  object-position: 50% 60%;
 }
 
 .carousel__slide img.id4 {
-  object-position: 50% 50%;
+  object-position: 50% 45%;
 }
 
 .carousel__slide img.id5 {
@@ -77,7 +77,7 @@
 }
 
 .carousel__slide img.id9 {
-  object-position: 50% 30%;
+  object-position: 50% 25%;
 }
 
 .carousel__slide img.id10 {
