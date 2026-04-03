@@ -5,7 +5,14 @@
   --secondary-complementary-color: #003979;
 
   --max-width: 900px;
-  --max-height: 600px;
+  --max-height: 800px;
+}
+
+/* Make intro text visible on 1080p, while allowing more image space on higher resolution screens */
+@media (max-width: 2000px) {
+  :root {
+    --max-height: 600px;
+  }
 }
 
 @font-face {
