@@ -5,89 +5,62 @@
 
 .carousel {
   width: 100%;
-  max-height: var(--max-carousel-height);
+  height: min(100vw / 16 * 9, var(--max-carousel-height));
   margin: 0 auto;
   padding-bottom: 10px;
   position: relative;
 }
 
-.carousel__slides {
-  width: 100%;
-  column-gap: 0px;
-  display: flex;
-  overflow: auto;
-  scroll-snap-type: x mandatory;
-  scrollbar-width: none; /* Firefox and latest Chromium */
-}
-
-.carousel__slides.smooth-scroll {
-  scroll-behavior: smooth;
-}
-
-.carousel__slides::-webkit-scrollbar {
-  display: none; /* Safari and legacy Chromium */
-}
-
-.carousel__slide {
+#slide_container {
   flex: 0 0 auto;
-  scroll-snap-align: center;
+  overflow: auto;
   width: 100%;
   z-index: -1;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
 }
 
-.carousel__slide img {
+#slide_container img {
   object-fit: cover;
   object-position: 50% 30%;
   max-height: var(--max-carousel-height);
   display: block;
+  grid-column: 1;
+  grid-row: 1;
+  overflow: hidden;
+  width: 100%;
+  opacity: 0; /* Must be 0 to hide flashing images while loading in Firefox */
+  transition: opacity 1s;
+  z-index: -2;
+}
+
+#slide_container img.currentImage {
+  opacity: 1;
+  z-index: 0;
+}
+
+#slide_container img.fadeOut {
+  opacity:0;
+  z-index: 0;
+}
+
+#slide_container img.nextImage {
+  opacity: 1;
+  z-index: -1;
 }
 
 /* Zoom towards the correct vertical center for each image on wider screens */
 /* Class set by image name in carousel.js */
-.carousel__slide img.id1 {
-  object-position: 50% 0%;
-}
-
-.carousel__slide img.id2 {
-  object-position: 50% 10%;
-}
-
-.carousel__slide img.id3 {
-  object-position: 50% 60%;
-}
-
-.carousel__slide img.id4 {
-  object-position: 50% 45%;
-}
-
-.carousel__slide img.id5 {
-  object-position: 50% 50%;
-}
-
-.carousel__slide img.id6 {
-  object-position: 50% 30%;
-}
-
-.carousel__slide img.id7 {
-  object-position: 50% 0%;
-}
-
-.carousel__slide img.id8 {
-  object-position: 50% 30%;
-}
-
-.carousel__slide img.id9 {
-  object-position: 50% 25%;
-}
-
-.carousel__slide img.id10 {
-  object-position: 50% 30%;
-}
-
-.carousel__slide img.id11 {
-  object-position: 50% 40%;
-}
-
-.carousel__slide img.id12 {
-  object-position: 50% 75%;
-}
+#slide_container #imageNumber1  {object-position: 50% 0%}
+#slide_container #imageNumber2  {object-position: 50% 10%}
+#slide_container #imageNumber3  {object-position: 50% 60%}
+#slide_container #imageNumber4  {object-position: 50% 45%}
+#slide_container #imageNumber5  {object-position: 50% 50%}
+#slide_container #imageNumber6  {object-position: 50% 30%}
+#slide_container #imageNumber7  {object-position: 50% 0%}
+#slide_container #imageNumber8  {object-position: 50% 30%}
+#slide_container #imageNumber9  {object-position: 50% 25%}
+#slide_container #imageNumber10 {object-position: 50% 30%}
+#slide_container #imageNumber11 {object-position: 50% 40%}
+#slide_container #imageNumber12 {object-position: 50% 75%}
