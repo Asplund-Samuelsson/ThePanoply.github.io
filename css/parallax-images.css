@@ -75,7 +75,6 @@ div.parallax-image-gigs {
 /* DIVIDERS-> */
 /* https://codepen.io/Everybodyknows/pen/abbyLOZ */
 .fixed {
-  top: 10vh;
   width: 100%;
 
   -webkit-background-size: cover;
@@ -91,6 +90,10 @@ div.parallax-image-gigs {
     position: -webkit-sticky; /* Safari */
     position: sticky;
     height: var(--divider-height);
+    img {
+      object-fit: cover;
+      height: 100vh;
+    }
   }
 }
 
