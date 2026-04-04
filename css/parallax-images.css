@@ -45,31 +45,62 @@
   }
 }
 
-div.parallax-image-socnet {
-  margin-top: -5vh;
-  
+
+div.parallax-image-contact {
+  margin-top: 0vh;
+  background-position: center bottom;
   .lazy {
     background-image: none;
     background-color: var(--main-complementary-color);
   }
 }
 
-div.parallax-image-contact {
-  margin-top: -5vh;
-  background-position: center bottom;
-}
-
-div.parallax-image-contact.lazy {
-  background-image: none;
-  background-color: var(--main-complementary-color);
+div.parallax-image-socnet {
+  margin-top: 0vh;
+  .lazy {
+    background-image: none;
+    background-color: var(--main-complementary-color);
+  }
 }
 
 div.parallax-image-gigs {
-  margin-top: -5vh;
+  margin-top: 0vh;
   background-position: center bottom;
-
   .lazy {
     background-image: none;
     background-color: var(--main-complementary-color);
   }
 }
+
+/* DIVIDERS-> */
+/* https://codepen.io/Everybodyknows/pen/abbyLOZ */
+.fixed {
+  top: 10vh;
+  width: 100%;
+
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  background-size: cover;
+  z-index: -1;
+}
+
+/* IOS Safari doesn't support fixed, see https://bugs.webkit.org/show_bug.cgi?id=275247 */
+/* This is IOS Safari */
+@supports (-webkit-touch-callout: none) {
+  .fixed {
+    position: -webkit-sticky; /* Safari */
+    position: sticky;
+    height: var(--divider-height);
+  }
+}
+
+/* This is other */
+@supports not (-webkit-touch-callout: none) {
+  .fixed:not(.ios-safari) {
+    height: var(--divider-height);
+    background-attachment: fixed;
+  }
+
+}
+
+/* ->DIVIDERS */

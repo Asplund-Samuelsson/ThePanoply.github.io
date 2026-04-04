@@ -16,7 +16,7 @@ h2 {
   max-width: var(--max-width);
   position: relative;
   width: 90%;
-  height: 1vh;
+  height: var(--header-height);
   display: flex;
   justify-content: flex-start;
   align-items: flex-end;
