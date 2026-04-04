@@ -13,7 +13,7 @@
 
 .carousel__slides {
   width: 100%;
-  column-gap: 20px;
+  column-gap: 0px;
   display: flex;
   overflow: auto;
   scroll-snap-type: x mandatory;

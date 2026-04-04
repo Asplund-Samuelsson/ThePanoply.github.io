@@ -60,22 +60,16 @@ const slides = document.querySelectorAll(".carousel__slide");
 const n_slides = slides.length;
 const n_slidesCloned = 1;
 let slideWidth = slides[0].offsetWidth;
-let spaceBtwSlides = Number(
-  window
-    .getComputedStyle(slideWrapper)
-    .getPropertyValue("grid-column-gap")
-    .slice(0, -2),
-); // drop px at the end
 function index_slideCurrent() {
   return Math.round(
-    slideWrapper.scrollLeft / (slideWidth + spaceBtwSlides) - n_slidesCloned,
+    slideWrapper.scrollLeft / slideWidth - n_slidesCloned,
   );
 }
 
 // Nav dot click handler
 function goto(index) {
   slideWrapper.scrollTo(
-    (slideWidth + spaceBtwSlides) * (index + n_slidesCloned),
+    slideWidth * (index + n_slidesCloned),
     0,
   );
 }
@@ -87,13 +81,13 @@ slideWrapper.addEventListener("scroll", () => {
   scrollTimer = setTimeout(() => {
     if (
       slideWrapper.scrollLeft <
-      (slideWidth + spaceBtwSlides) * (n_slidesCloned - 1 / 2)
+      slideWidth * (n_slidesCloned - 1 / 2)
     ) {
       forward();
     }
     if (
       slideWrapper.scrollLeft >
-      (slideWidth + spaceBtwSlides) * (n_slides - 1 + n_slidesCloned + 1 / 2)
+      slideWidth * (n_slides - 1 + n_slidesCloned + 1 / 2)
     ) {
       rewind();
     }
@@ -132,7 +126,7 @@ function rewind() {
   slideWrapper.classList.remove("smooth-scroll");
   setTimeout(() => {
     // wait for smooth scroll to be disabled
-    slideWrapper.scrollTo((slideWidth + spaceBtwSlides) * n_slidesCloned, 0);
+    slideWrapper.scrollTo(slideWidth * n_slidesCloned, 0);
     slideWrapper.classList.add("smooth-scroll");
   }, 100);
 }
@@ -142,7 +136,7 @@ function forward() {
   setTimeout(() => {
     // wait for smooth scroll to be disabled
     slideWrapper.scrollTo(
-      (slideWidth + spaceBtwSlides) * (n_slides - 1 + n_slidesCloned),
+      slideWidth * (n_slides - 1 + n_slidesCloned),
       0,
     );
     slideWrapper.classList.add("smooth-scroll");
