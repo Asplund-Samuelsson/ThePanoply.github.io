@@ -10,14 +10,6 @@ tr {
   text-align: left;
 }
 
-/* .firstColumn {
-  text-align: left;
-}
-
-.lastColumn {
-  text-align: right;
-} */
-
 .secondTr {
   background-color: var(--secondary-color);
 }

@@ -10,14 +10,6 @@ h2 {
   font-family: "PottaOne";
 }
 
-.nav {
-  min-height: 73px;
-
-  img {
-    width: 80%;
-  }
-}
-
 .section-header {
   margin-left: auto;
   margin-right: auto;

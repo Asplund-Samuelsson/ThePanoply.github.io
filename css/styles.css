@@ -152,25 +152,6 @@ a img {
 
 /* /SocnetIcons */
 
-div.parallax-image-socnet {
-  margin-top: -5vh;
-}
-
-div.parallax-image-socnet.lazy {
-  background-image: none;
-  background-color: var(--main-complementary-color);
-}
-
-div.parallax-image-contact {
-  margin-top: -5vh;
-  background-position: center bottom;
-}
-
-div.parallax-image-contact.lazy {
-  background-image: none;
-  background-color: var(--main-complementary-color);
-}
-
 /* DIVIDERS-> */
 /* https://codepen.io/Everybodyknows/pen/abbyLOZ */
 .fixed {
