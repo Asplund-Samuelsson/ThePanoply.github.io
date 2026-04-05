@@ -10,7 +10,7 @@ function initScrollFadeSections() {
       // When element enters bottom of viewport → start fade
       const start = windowHeight;
       // When element reaches middle of viewport → fully visible
-      const end = windowHeight * 0.5;
+      const end = windowHeight * 0.55;
 
       const progress = (start - rect.top) / (start - end);
 
