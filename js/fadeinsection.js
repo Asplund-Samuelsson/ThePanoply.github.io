@@ -1,36 +1,46 @@
 function initScrollFadeSections() {
   const elements = document.querySelectorAll('.fade-in-section');
 
-  function update() {
+  const hasHash = window.location.hash;
+
+  function update(skipAnimation = false) {
     const windowHeight = window.innerHeight;
 
     elements.forEach((el) => {
       const rect = el.getBoundingClientRect();
 
-      // When element enters bottom of viewport → start fade
       const start = windowHeight;
-      // When element reaches middle of viewport → fully visible
       const end = windowHeight * 0.55;
 
-      const progress = (start - rect.top) / (start - end);
+      let progress = (start - rect.top) / (start - end);
+      progress = Math.max(0, Math.min(1, progress));
 
-      // Clamp between 0 and 1
-      const clamped = Math.max(0, Math.min(1, progress));
+      if (skipAnimation) {
+        progress = rect.top < windowHeight ? 1 : 0;
+      }
 
-      el.style.opacity = clamped;
-      el.style.transform = `translateY(${25 * (1 - clamped)}vh)`;
+      el.style.opacity = progress;
+      el.style.transform = `translateY(${25 * (1 - progress)}vh)`;
     });
   }
 
-  window.addEventListener('scroll', update);
-  window.addEventListener('resize', update);
+  function onScroll() {
+    update(false);
+  }
 
-  update(); // run once on load
+  window.addEventListener('scroll', onScroll);
+  window.addEventListener('resize', () => update(false));
 
-  // Optional cleanup
+  // Initial run
+  update(!!hasHash);
+
+  // After first frame, allow animation again
+  requestAnimationFrame(() => {
+    setTimeout(() => update(false), 100);
+  });
+
   return () => {
-    window.removeEventListener('scroll', update);
-    window.removeEventListener('resize', update);
+    window.removeEventListener('scroll', onScroll);
   };
 }
 
