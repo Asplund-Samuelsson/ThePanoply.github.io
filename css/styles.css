@@ -17,7 +17,7 @@
   /* Global dimensions */
   --max-width: 900px;
   --menu-height: 60px;
-  --divider-height: 50vh;
+  --divider-height: 40vh;
   --header-height: 1vh;
   --padding-bottom: 10px;
   --min-section-height: calc(100vh - var(--menu-height) - var(--divider-height));
