@@ -1,5 +1,0 @@
-.fade-in-section {
-  opacity: 0;
-  transform: translateY(25vh);
-  will-change: opacity, transform;
-}
