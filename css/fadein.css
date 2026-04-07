@@ -6,7 +6,7 @@
 
 .fade-in-header {
   opacity: 0;
-  transform: translateY(25vh);
+  transform: translateY(-18vh);
   will-change: opacity, transform;
 }
 

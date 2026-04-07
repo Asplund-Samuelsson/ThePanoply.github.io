@@ -24,7 +24,7 @@ function initScrollFadeSections() {
     function updateHeader(el) {
       let progress = Math.sqrt(getProgress(el, 0.5));
       el.style.opacity = progress;
-      el.style.transform = `translateY(${25 * (1 - progress)}vh)`;
+      el.style.transform = `translateY(${-18 * (1 - progress)}vh)`;
     };
 
     function updateSection(el) {
