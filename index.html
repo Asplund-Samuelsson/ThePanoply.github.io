@@ -31,37 +31,38 @@
     <link href="css/styles.css" rel="stylesheet" />
     <link href="css/menu.css" rel="stylesheet" />
     <link href="css/headers.css" rel="stylesheet" />
-    <link href="css/gallery.css" rel="stylesheet" />
-    <link href="css/socnet.css" rel="stylesheet" />
-    <link href="css/contact.css" rel="stylesheet" />
     <link href="css/carousel.css" rel="stylesheet" />
-    <link href="css/table.css" rel="stylesheet" />
+    <link href="css/introtext.css" rel="stylesheet" />
+    <link href="css/fadein.css" rel="stylesheet" />
     <link href="css/parallax-images.css" rel="stylesheet" />
+    <link href="css/contact.css" rel="stylesheet" />
+    <link href="css/socnet.css" rel="stylesheet" />
+    <link href="css/table.css" rel="stylesheet" />
 
     <script src="js/lazyloader.js"></script>
     <script src="js/googlesheet.js"></script>
+    <script src="js/fadein.js"></script>
   </head>
   <body>
     <!-- Page header -->
-    <div id="top"></div>
     <h1 role="main-header" id="banner">
       <img id="banner-image" src="images/banner.svg" alt="The Panoply" />
     </h1>
     <header id="Menu">
       <nav id="Nav">
         <div class="nav-left">
-          <a id="AboutLink" href="#top">
+          <a id="AboutLink" href="#om">
             om
           </a>
-          <a id="SocnetLink" href="#MediaSectionHeader">
+          <a id="SocnetLink" href="#videor">
             videor
           </a>
-          <a id="GigLink" href="#DoneGigsSectionHeader">
+          <a id="GigLink" href="#spelningar">
             spelningar
           </a>
         </div>
         <div class="nav-right">
-          <a class="cta_menu" id="ContactLink" href="#ContactSectionHeader">
+          <a class="cta_menu" id="ContactLink" href="#boka">
             boka
           </a>
         </div>
@@ -69,7 +70,7 @@
     </header>
 
     <!-- Carousel -->
-    <div class="carousel-wrapper">
+    <div id="om" class="carousel-wrapper">
       <div
         id="carousel"
         class="carousel"
@@ -90,12 +91,13 @@
       <img src="/images/carousel/1.jpg" />
     </noscript>
 
+    <section id="IntroSection">
     <section>
       <div class="row introtext">
         <p><b>Hej där!</b> Vi är The Panoply Steelband - en grupp engagerade musiker som spelar oljefat runtom i Stockholm och resten av landet med utgångspunkt i Södertälje. Vår repertoar innehåller de flesta typer av musik - allt från hårdrock, till modern pop, till karibisk musik. Vi spelar både covers och egenkomponerad musik.</p>
         <p>Vi spelar oljefat - ett instrument som ursprungligen kommer från Trinidad och Tobago. Instrumentet är tillverkat av gamla oljetunnor och består av olika stämmor. Ljudbilden är energisk och fartfylld, och påminner lite om en blandning av kyrkklockor och xylofoner. Vi underhåller på event, fester, konserter, festivaler, och liknande.</p>
         <p>Vi erbjuder även prova på-workshops och musikquiz. Boka oss om du vill ha en unik upplevelse till ditt event!</p>
-        <p class="cta"><a class="cta" href="#ContactSectionHeader">Boka oss</a></p>
+        <p class="cta"><a class="cta" href="#boka">Boka oss</a></p>
       </div>
     </section>
 
@@ -142,18 +144,24 @@
       </a>
     </div>
     </section>
-
+    </section>
+  
     <!-- Contact divider -->
-    <div id="ContactSectionHeader"></div>
-    <div class="parallax-image-contact fixed lazy"></div>
+    <div id="boka"></div>
+    <div class="fade-in-divider">
+      <div class="parallax-image-contact fixed lazy"></div>
+    </div>
 
+    <div class="fade-in-header">
     <div class="section-header">
       <div class="header-text">
         <h2>Boka oss</h2>
       </div>
     </div>
+    </div>
 
     <!-- Contact section -->
+    <div class="fade-in-section">
     <section id="ContactSection">
       <iframe
         loading="lazy"
@@ -162,19 +170,25 @@
       >
       </iframe>
     </section>
+    </div>
 
     <!-- Media section divider -->
-    <div id="MediaSectionHeader"></div>
-    <div class="parallax-image-socnet fixed lazy"></div>
+    <div id="videor"></div>
+    <div class="fade-in-divider">
+      <div class="parallax-image-socnet fixed lazy"></div>
+    </div>
 
+    <div class="fade-in-header">
     <div class="section-header">
       <div class="header-text">
         <h2>Våra videor</h2>
       </div>
     </div>
+    </div>
 
     <!-- Media section -->
-    <section>
+    <div class="fade-in-section">
+    <section id="VideoSection">
       <div id="Youtube-Root" class="socnet">
         <iframe
           loading="lazy"
@@ -185,17 +199,23 @@
         </iframe>
       </div>
     </section>
+    </div>
 
     <!-- Media section divider -->
-    <div id="DoneGigsSectionHeader"></div>
+    <div id="spelningar"></div>
+    <div class="fade-in-divider">
     <div class="parallax-image-gigs fixed lazy"></div>
+    </div>
 
+    <div class="fade-in-header">
     <div class="section-header">
       <div class="header-text">
         <h2>Spelningar</h2>
       </div>
     </div>
+    </div>
 
+    <div class="fade-in-section">
     <section id="DoneGigSection">
       <table id="gigs"></table>
 
@@ -211,6 +231,7 @@
         spännande gigs vi gjort här</noscript
       >
     </section>
+    </div>
 
     <!-- Photographers section -->
     <footer id="fotografer">
