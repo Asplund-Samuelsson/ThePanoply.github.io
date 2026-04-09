@@ -2,7 +2,6 @@
 const csvUrl = `https://docs.google.com/spreadsheets/d/10dt27NU05LcEZJcv1qyzAM1yOFAejA7Fx7QS2BzzyYs/export?format=csv`;
 
 // Checking if there is a current pagination count
-// let gigPage = Number.parseInt(window.sessionStorage.getItem("gigPage") ?? 1);
 let gigPage = 1;
 let rows = [];
 
@@ -11,7 +10,6 @@ const paginationLength = 10;
 function paginateNext() {
   console.log("pagination");
   gigPage += paginationLength;
-  // window.sessionStorage.setItem("gigPage", gigPage);
   populateRows();
 }
 
