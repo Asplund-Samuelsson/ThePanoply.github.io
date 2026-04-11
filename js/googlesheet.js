@@ -62,8 +62,10 @@ async function loadSheetAsCsv() {
 }
 
 function populateDoneRows() {
-  const table = document.getElementById("gigs");
+  const table = document.getElementById("done-gigs");
   console.log({ firstRowOfPage: firstRowOfPage, paginationLength, length: rows.length });
+  let currentDate = new Date();
+  let currentDateISO = currentDate.toISOString();
 
   // data rows
   for (
@@ -75,6 +77,7 @@ function populateDoneRows() {
     let columnHeader = "";
 
     console.log(`Row ${i} of ${firstRowOfPage + paginationLength}`);
+    if (rows[i][2] >= currentDateISO) console.log({kommande: rows[i]});
 
     if (i % 2 === 0) {
       tableRow.setAttribute("class", "secondTr");
@@ -130,7 +133,7 @@ const loadTable = async () => {
   document.getElementById("paginateButton").style.visibility = "visible";
 
   console.log("creating table");
-  const table = document.getElementById("gigs");
+  const table = document.getElementById("done-gigs");
 
   // headers
   console.log("creating columns");
