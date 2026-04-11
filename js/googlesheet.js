@@ -2,14 +2,15 @@
 const csvUrl = `https://docs.google.com/spreadsheets/d/10dt27NU05LcEZJcv1qyzAM1yOFAejA7Fx7QS2BzzyYs/export?format=csv`;
 
 // Checking if there is a current pagination count
-let gigPage = 1;
+let firstRowOfPage = 1;
 let rows = [];
 
 const paginationLength = 10;
 
 function paginateNext() {
   console.log("pagination");
-  gigPage += paginationLength;
+  firstRowOfPage += paginationLength;
+  if (firstRowOfPage + paginationLength > rows.length) document.getElementById("paginateButton").style.visibility = "hidden";
   populateRows();
 }
 
@@ -30,18 +31,18 @@ async function loadSheetAsCsv() {
 
 function populateRows() {
   const table = document.getElementById("gigs");
-  console.log({ gigPage, paginationLength, length: rows.length });
+  console.log({ firstRowOfPage: firstRowOfPage, paginationLength, length: rows.length });
 
   // data rows
   for (
-    let i = gigPage;
-    i < gigPage + paginationLength && i < rows.length;
+    let i = firstRowOfPage;
+    i < firstRowOfPage + paginationLength && i < rows.length;
     i++
   ) {
     const tableRow = document.createElement("tr");
     let columnHeader = "";
 
-    console.log(`Row ${i} of ${gigPage + paginationLength}`);
+    console.log(`Row ${i} of ${firstRowOfPage + paginationLength}`);
 
     if (i % 2 === 0) {
       tableRow.setAttribute("class", "secondTr");
