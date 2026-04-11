@@ -11,7 +11,33 @@ function paginateNext() {
   console.log("pagination");
   firstRowOfPage += paginationLength;
   if (firstRowOfPage + paginationLength > rows.length) document.getElementById("paginateButton").style.visibility = "hidden";
-  populateRows();
+  populateDoneRows();
+}
+
+function comparator(a, b) {
+  // Compare by date in CSV array of arrays for sorting
+  if (a[2] > b[2]) return -1;
+  if (a[2] < b[2]) return 1;
+  return 0;
+}
+
+function splitCSV(row) {
+  const result = [];
+  let current = "";
+  let inQuotes = false;
+
+  for (let char of row) {
+    if (char === '"') {
+      inQuotes = !inQuotes;
+    } else if (char === "," && !inQuotes) {
+      result.push(current);
+      current = "";
+    } else {
+      current += char;
+    }
+  }
+  result.push(current);
+  return result;
 }
 
 // Simple CSV parser (splits on newlines and commas)
@@ -21,15 +47,21 @@ async function loadSheetAsCsv() {
   if (!res.ok) throw new Error("Network response was not ok");
   const csvText = await res.text();
 
-  const rows = csvText
+  let rows = csvText
     .trim()
     .split("\n")
-    .map((row) => row.split(","));
-  // `rows[0]` now holds the header, `rows[1...]` the data
+    .map(splitCSV);
+
+  header = rows[0];
+  rows = rows
+    .slice(1)
+    .sort(comparator);
+  rows.unshift(header);
+
   return rows;
 }
 
-function populateRows() {
+function populateDoneRows() {
   const table = document.getElementById("gigs");
   console.log({ firstRowOfPage: firstRowOfPage, paginationLength, length: rows.length });
 
@@ -118,7 +150,7 @@ const loadTable = async () => {
   });
   table.appendChild(headerRow);
 
-  populateRows();
+  populateDoneRows();
 };
 
 loadTable();
