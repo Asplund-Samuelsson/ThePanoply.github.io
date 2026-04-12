@@ -6,9 +6,9 @@ let firstRowOfPage = 1;
 let rows = [];
 
 const paginationLength = 10;
+let noSplit = true;
 
 function paginateNext() {
-  console.log("pagination");
   firstRowOfPage += paginationLength;
   if (firstRowOfPage + paginationLength > rows.length) document.getElementById("paginateButton").style.visibility = "hidden";
   populateRows();
@@ -102,9 +102,15 @@ function populateUpcomingRow(tableRow, i) {
   table.appendChild(tableRow);
 }
 
+function hideSplit() {
+  const splitElements = document.getElementsByClassName("split");
+  for (let j = 0; j < splitElements.length; j++) {
+    splitElements.item(j).style.display = 'none';
+  }
+}
+
 function populateRows() {
   const table = document.getElementById("done-gigs");
-  console.log({ firstRowOfPage: firstRowOfPage, paginationLength, length: rows.length });
   let currentDate = new Date();
   let currentDateISO = currentDate.toISOString();
 
@@ -121,6 +127,7 @@ function populateRows() {
 
     if (rows[i][2] >= currentDateISO) {
       populateUpcomingRow(tableRow, i);
+      noSplit = false;
       continue;
     }
 
@@ -130,6 +137,8 @@ function populateRows() {
 
     table.appendChild(tableRow);
   }
+
+  if (noSplit) hideSplit();
 }
 
 const loadTable = async () => {
