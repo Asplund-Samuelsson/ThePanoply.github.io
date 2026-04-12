@@ -11,7 +11,7 @@ function paginateNext() {
   console.log("pagination");
   firstRowOfPage += paginationLength;
   if (firstRowOfPage + paginationLength > rows.length) document.getElementById("paginateButton").style.visibility = "hidden";
-  populateDoneRows();
+  populateRows();
 }
 
 function comparator(a, b) {
@@ -61,99 +61,103 @@ async function loadSheetAsCsv() {
   return rows;
 }
 
-function populateDoneRows() {
+function createTableRow(row) {
+  const tableRow = document.createElement("tr");
+  let columnHeader = "";
+
+  const columns = [];
+  row.forEach((c, j) => {
+    let result =
+      c[0] === '"'
+        ? `${row[j]}${row[j + 1]}`
+        : c[c.length - 1] !== '"' && c;
+    result = result && result.replaceAll('"', "");
+    result && columns.push(result);
+  });
+
+  for (let j = 0; j < columns.length; j++) {
+    const columnElement = document.createElement("td");
+    const column = columns[j];
+
+    if (column[column.length - 1] === '"') {
+      columnHeader = `${columnHeader}${column.replace('"', "")}`;
+      columnElement.innerText = columnHeader;
+      tableRow.appendChild(columnElement);
+    } else if (column[0] === '"') {
+      columnHeader = column.replace('"', "");
+    } else {
+      columnElement.innerText = column;
+      tableRow.appendChild(columnElement);
+    }
+  }
+
+  return tableRow;
+}
+
+function populateUpcomingRow(tableRow, i) {
+  const table = document.getElementById("upcoming-gigs");
+  if (i % 2 === 0) {
+    tableRow.setAttribute("class", "secondTr");
+  }
+  table.appendChild(tableRow);
+}
+
+function populateRows() {
   const table = document.getElementById("done-gigs");
   console.log({ firstRowOfPage: firstRowOfPage, paginationLength, length: rows.length });
   let currentDate = new Date();
   let currentDateISO = currentDate.toISOString();
 
-  // data rows
   for (
     let i = firstRowOfPage;
     i < firstRowOfPage + paginationLength && i < rows.length;
     i++
   ) {
-    const tableRow = document.createElement("tr");
-    let columnHeader = "";
+    const tableRow = createTableRow(rows[i]);
 
-    console.log(`Row ${i} of ${firstRowOfPage + paginationLength}`);
-    if (rows[i][2] >= currentDateISO) console.log({kommande: rows[i]});
+    if (i === 1) {
+      populateUpcomingRow(tableRow, i);
+    }
+
+    if (rows[i][2] >= currentDateISO) {
+      populateUpcomingRow(tableRow, i);
+      continue;
+    }
 
     if (i % 2 === 0) {
       tableRow.setAttribute("class", "secondTr");
     }
 
-    const columns = [];
-    rows[i].forEach((c, j) => {
-      let result =
-        c[0] === '"'
-          ? `${rows[i][j]}${rows[i][j + 1]}`
-          : c[c.length - 1] !== '"' && c;
-      result = result && result.replaceAll('"', "");
-      result && columns.push(result);
-    });
-
-    for (let j = 0; j < columns.length; j++) {
-      // Create column values
-      const columnElm = document.createElement("td");
-      if (j === 0) {
-        columnElm.setAttribute("class", "firstColumn");
-      } else if (j === columns.length - 1) {
-        columnElm.setAttribute("class", "lastColumn");
-      } else {
-        columnElm.setAttribute("class", "middleColumns");
-      }
-
-      const column = columns[j];
-
-      if (column[column.length - 1] === '"') {
-        columnHeader = `${columnHeader}${column.replace('"', "")}`;
-        columnElm.innerText = columnHeader;
-        tableRow.appendChild(columnElm);
-      } else if (column[0] === '"') {
-        columnHeader = column.replace('"', "");
-      } else {
-        columnElm.innerText = column;
-        tableRow.appendChild(columnElm);
-      }
-
-      console.log("appending row", tableRow);
-
-      table.appendChild(tableRow);
-    }
-
-    console.log("rows populated");
+    table.appendChild(tableRow);
   }
 }
 
 const loadTable = async () => {
   rows = await loadSheetAsCsv().catch(console.error);
 
-  console.log("showing button");
   document.getElementById("paginateButton").style.visibility = "visible";
 
-  console.log("creating table");
-  const table = document.getElementById("done-gigs");
-
-  // headers
-  console.log("creating columns");
-  const headerRow = document.createElement("tr");
+  const doneHeaderRow = document.createElement("tr");
   rows[0].map((column, idx) => {
-    const headerColumn = document.createElement("th");
-    if (idx === 0) {
-      headerColumn.setAttribute("class", "firstColumn");
-    } else if (idx === rows[0].length - 1) {
-      headerColumn.setAttribute("class", "lastColumn");
-    } else {
-      headerColumn.setAttribute("class", "middleColumns");
-    }
-
-    headerColumn.innerText = column;
-    headerRow.appendChild(headerColumn);
+    const doneHeaderColumn = document.createElement("th");
+    doneHeaderColumn.innerText = column;
+    doneHeaderRow.appendChild(doneHeaderColumn);
   });
-  table.appendChild(headerRow);
 
-  populateDoneRows();
+  const upcomingHeaderRow = document.createElement("tr");
+  rows[0].map((column, idx) => {
+    const upcomingHeaderColumn = document.createElement("th");
+    upcomingHeaderColumn.innerText = column;
+    upcomingHeaderRow.appendChild(upcomingHeaderColumn);
+  });
+  
+  const doneTable = document.getElementById("done-gigs");
+  doneTable.appendChild(doneHeaderRow);
+
+  const upcomingTable = document.getElementById("upcoming-gigs");
+  upcomingTable.appendChild(upcomingHeaderRow);
+  
+  populateRows();
 };
 
 loadTable();
