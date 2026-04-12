@@ -3,6 +3,10 @@ h1 {
   font-weight: 700;
   color: black;
   margin: 0px;
+  text-align: left;
+  width: 90%;
+  max-width: var(--max-width);
+  display: inline-table;
 }
 
 h2 {
