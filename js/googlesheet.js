@@ -143,29 +143,7 @@ function populateRows() {
 
 const loadTable = async () => {
   rows = await loadSheetAsCsv().catch(console.error);
-
   document.getElementById("paginateButton").style.visibility = "visible";
-
-  const doneHeaderRow = document.createElement("tr");
-  rows[0].map((column, idx) => {
-    const doneHeaderColumn = document.createElement("th");
-    doneHeaderColumn.innerText = column;
-    doneHeaderRow.appendChild(doneHeaderColumn);
-  });
-
-  const upcomingHeaderRow = document.createElement("tr");
-  rows[0].map((column, idx) => {
-    const upcomingHeaderColumn = document.createElement("th");
-    upcomingHeaderColumn.innerText = column;
-    upcomingHeaderRow.appendChild(upcomingHeaderColumn);
-  });
-  
-  const doneTable = document.getElementById("done-gigs");
-  doneTable.appendChild(doneHeaderRow);
-
-  const upcomingTable = document.getElementById("upcoming-gigs");
-  upcomingTable.appendChild(upcomingHeaderRow);
-  
   populateRows();
 };
 
