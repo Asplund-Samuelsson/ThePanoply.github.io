@@ -5,6 +5,12 @@
   display: inline-table;
 }
 
+@media (min-width: 901px) {
+  .introtext {
+    font-size: larger;
+  }
+}
+
 /* SocnetIcons */
 
 #SocnetIcons {
