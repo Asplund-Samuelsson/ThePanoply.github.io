@@ -13,6 +13,16 @@
 
 /* SocnetIcons */
 
+hr {
+  width: 80%;
+  max-width: var(--max-width);
+  margin: 10px auto;
+  height: 1px;
+  color: lightgray;
+  background-color: lightgray;
+  border: none;
+}
+
 #SocnetIcons {
   padding: 5px 5px 0px 5px;
   z-index: 2;
@@ -21,16 +31,15 @@
 a img {
   display: inline;
   margin: auto;
-  width: 38px;
-  height: 38px;
+  width: 32px;
+  height: 32px;
   border: 0;
-  padding: 5px;
+  padding: 0px;
 }
 
 .socneticons {
   display: flex;
-  padding-left: calc(30vw - 120px);
-  padding-right: calc(30vw - 120px);
+  max-width: var(--max-width);
   margin: auto;
   justify-content: space-around;
 }
@@ -58,11 +67,13 @@ a img {
     text-decoration: none;
     font-family: "Rambla";
     color: black;
+    padding: 0;
+    margin: 5px;
 }
 
 .img-with-text img {
     display: block;
-    margin: 0 auto;
+    margin: 0;
 }
 
 .cta {
