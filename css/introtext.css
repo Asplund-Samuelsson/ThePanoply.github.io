@@ -29,8 +29,8 @@ a img {
 
 .socneticons {
   display: flex;
-  padding-left: calc(40vw - 100px);
-  padding-right: calc(40vw - 100px);
+  padding-left: calc(30vw - 120px);
+  padding-right: calc(30vw - 120px);
   margin: auto;
   justify-content: space-around;
 }
@@ -51,6 +51,18 @@ a img {
   padding-bottom: 30px; /* safari doesn't seem to support padding-only */
   padding: 5px 5px 30px 5px;
   z-index: 2;
+}
+
+.img-with-text {
+    text-align: justify;
+    text-decoration: none;
+    font-family: "Rambla";
+    color: black;
+}
+
+.img-with-text img {
+    display: block;
+    margin: 0 auto;
 }
 
 .cta {
