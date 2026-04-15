@@ -37,6 +37,11 @@ a img {
   justify-content: space-around;
 }
 
+.socneticons a {
+  text-decoration: none;
+  color: inherit;
+}
+
 .socneticon {
   text-align: center;
   align-content: center;
