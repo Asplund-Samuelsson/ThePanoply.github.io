@@ -32,9 +32,10 @@ a img {
 
 .socneticons {
   display: flex;
-  max-width: var(--max-width);
+  width: calc(min(var(--max-width), 450px));
   margin: auto;
   justify-content: space-around;
+  padding-bottom: 10px;
 }
 
 .socneticons a {
@@ -47,20 +48,21 @@ a img {
   align-content: center;
   display: inline-block;
   margin: auto;
+  flex: 1 1 0px;
 }
 
 .img-with-text {
-    text-align: justify;
-    text-decoration: none;
-    font-family: "Rambla";
-    color: black;
-    padding: 0;
-    margin: 5px;
+  text-align: center;
+  text-decoration: none;
+  font-family: "Rambla";
+  color: black;
+  padding: 0;
+  margin: 5px;
 }
 
 .img-with-text img {
-    display: block;
-    margin: 0;
+  display: block;
+  margin: 0;
 }
 
 .cta {
