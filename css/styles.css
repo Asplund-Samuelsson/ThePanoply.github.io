@@ -117,7 +117,7 @@ section {
   min-height: var(--min-section-height);
 }
 
-#videor {
+#video {
   scroll-margin-top: var(--menu-height);
 }
 
